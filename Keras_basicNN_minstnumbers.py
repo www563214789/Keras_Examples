@@ -1,6 +1,6 @@
 from keras.models import Sequential
 from keras.layers import Dense,Activation,Dropout
-from keras.optimizer import SGD
+from keras.optimizers import SGD
 from keras.datasets import mnist
 import numpy as np
 
