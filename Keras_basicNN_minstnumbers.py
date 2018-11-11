@@ -33,7 +33,7 @@ model.compile(loss='categorical_crossentropy',optimizer='sgd',class_mode='catego
     #validation_split：拿出百分之多少用来做交叉验证
     #verbose：屏显模式 0：不输出  1：输出进度  2：输出每次的训练结果
 
-(x_train, y_train), (x_test, y_test)=minst.load_data() #Use minst tools from Keras to get datasets
+(x_train, y_train), (x_test, y_test)=mnist.load_data() #Use mnist tools from Keras to get datasets
 #The dimension of input dataset in minst is (num,28,28), We need to transfer dimension 28,28 -> 784(28*28) (立體->平面)
 x_train=x_train.reshape(x_train.shape[0], x_train.shape[1]*x_train.shape[2])
 x_test=x_test.reshape(x_test.shape[0], x_test.shape[1]*x_test.shape[2])
