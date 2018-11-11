@@ -23,7 +23,7 @@ model.add(Activation("softmax"))
 
 #Step 3 Compile
 sgd=SGD(lr=0.01, decay=le-6, momentum=0.9, nesterov=True) #Set Optimizer arguments, Lr(Learning Rate)...etc
-model.compile(loss'categorical_crossentropy',optimizer='sgd',class_mode='categorical', metrics=['accuracy']) #Use 交叉熵 as loss function
+model.compile(loss='categorical_crossentropy',optimizer='sgd',class_mode='categorical', metrics=['accuracy']) #Use 交叉熵 as loss function
 
 #Step 4 Trainning
     #.fit的一些参数
