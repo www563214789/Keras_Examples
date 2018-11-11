@@ -40,7 +40,7 @@ x_test=x_test.reshape(x_test.shape[0], x_test.shape[1]*x_test.shape[2])
 y_train=(np.arange(10) == y_train[:,None]).astype(int)
 y_test=(np.arange(10) == y_test[:,None]).astype(int)
 
-model.fit=(x_train, y_train, batch_size=200, epochs=50, shuffle=True, verbose=0, validation_split=0.3)
+model.fit(x_train, y_train, batch_size=200, epochs=50, shuffle=True, verbose=0, validation_split=0.3)
 mode.evaluate(x_test, y_test,batch_size=200, verbose=0)
 
 #Step 5 Output
