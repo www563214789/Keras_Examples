@@ -2,7 +2,7 @@ from keras import backend as K
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers.core import Activation
-from keras.optimizer import Adadelta()
+from keras.optimizer import Adadelta
 from keras.utils import np_utils
 from keras.layers.convolutional import Conv2D, MaxPooling2D #CNN 使用卷積層(Conv2D) 池化層(Pooling)
 
@@ -35,7 +35,7 @@ model.add(Dropout(0.5))
 
 model.add(Dense(10, activation='softmax'))
 
-model.compile(loss='keras.losses.categorical_crossentropy', optimizer=Adadelta(), metrics=['accuracy'])
+model.compile(loss='keras.losses.categorical_crossentropy', optimizer='Adadelta', metrics=['accuracy'])
 
 train_history = model.fit(x_train_2D, y_train_encoded, batch_size=100, epochs=12, verbose=2, validation_data=(x_test_2D, y_test_encoded))
 
