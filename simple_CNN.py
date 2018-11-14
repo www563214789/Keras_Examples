@@ -54,3 +54,13 @@ train_history = model.fit(x_train_2D, y_train_encoded, batch_size=128, epochs=12
 loss_rate, accu_rate = model.evaluate(x_test_2D, y_test_encoded, verbose=0)
 print('Test loss:', loss_rate)
 print('Test accuracy:', accu_rate)
+
+#Saving model and weight
+#Model
+from keras.models import model_to_json
+json_string = model_to_json #Get model architechture in json
+with open("model.config","w") as text_file:
+    text_file.write(json_string) #Create file and use function .write(filename) to save the model
+#Weight
+model.save_weights("model.weight") #function .save_weights(filename)
+
