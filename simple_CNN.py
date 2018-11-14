@@ -29,42 +29,42 @@ x_test_2D = x_test_2D.astype('float32')/255
 y_train_encoded = keras.utils.to_categorical(y_train, 10)
 y_test_encoded = keras.utils.to_categorical(y_test, 10)
 
-#Construct a CNN model
+#[1] Construct a CNN model
 model = Sequential()
 
-#Input Layer
+#[2] Input Layer
 model.add(Conv2D(32, kernel_size=(3, 3), activation = 'relu', input_shape=input_shape)) 
 
-#First Convolution layer + Pooling layer
+#[2-1] First Convolution layer + Pooling layer
 model.add(Conv2D(64, kernel_size=(3, 3), activation = 'relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
-#Add Flatten layer to make dimension to 1
+#[2-2]Add Flatten layer to make dimension to 1
 model.add(Flatten())
 model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 
-#Output layer
+#[2-3] Output layer
 model.add(Dense(10, activation='softmax'))
 
-#Compile model
+#[3] Compile model
 model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
 
-#Trainning
+#[4] Trainning
 train_history = model.fit(x_train_2D, y_train_encoded, batch_size=128, epochs=12, verbose=2, validation_data=(x_test_2D, y_test_encoded))
 
-#Evaluating accuracy rate and loss rate
+#[5] Evaluating accuracy rate and loss rate
 loss_rate, accu_rate = model.evaluate(x_test_2D, y_test_encoded, verbose=0)
 print('Test loss:', loss_rate)
 print('Test accuracy:', accu_rate)
 
-#Put test dataset in trained neural network and get predicted result
-x = x_test_2D[:20, :]
-prediction = model.predict_classes(X)
+#[6] Put test dataset in trained neural network and get predicted result
+x = x_test_2D[:20, :] #Get first 20 data in test_data to predict
+prediction = model.predict_classes(x)
 print(prediction)
 
-#Saving model and weight
+#[7] Saving model and weight
 from keras.models import model_from_json
 #Model
 json_string = model.to_json() #Get model architechture in json by model_to_json()
