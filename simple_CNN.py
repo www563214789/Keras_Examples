@@ -58,7 +58,7 @@ print('Test accuracy:', accu_rate)
 #Saving model and weight
 #Model
 from keras.models import model_from_json
-json_string = model_to_json #Get model architechture in json
+json_string = model_to_json() #Get model architechture in json by model_to_json()
 with open("model.config","w") as text_file:
     text_file.write(json_string) #Create file and use function .write(filename) to save the model
 #Weight
